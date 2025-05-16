@@ -103,3 +103,4 @@ window.addEventListener("load", () => {
     }, i * 150);
   });
 });
+console.log('GSAP and ScrollTrigger loaded:', typeof gsap !== 'undefined');
