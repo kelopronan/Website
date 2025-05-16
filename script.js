@@ -26,31 +26,35 @@ function type() {
 }
 
 type();
-gsap.from("#timeline", {
-  opacity: 0,
-  y: 50,
-  duration: 1,
-  scrollTrigger: {
-    trigger: "#timeline",
-    start: "top 85%",
-    toggleActions: "play none none none", // Play on enter, no reverse on leave
-    once: true, // Animate only once
-  }
-});
 
-gsap.from("#projects", {
-  opacity: 0,
-  y: 50,
-  duration: 1,
-  scrollTrigger: {
-    trigger: "#projects",
-    start: "top 85%",
-    toggleActions: "play none none none",
-    once: true,
-  }
-});
+// Scroll-Triggered Section Animations (Fade-in only, no fade-out)
+if (typeof gsap !== 'undefined') {
+  gsap.registerPlugin(ScrollTrigger);
 
+  gsap.from("#timeline", {
+    opacity: 0,
+    y: 50,
+    duration: 1,
+    scrollTrigger: {
+      trigger: "#timeline",
+      start: "top 85%",
+      toggleActions: "play none none none",
+      once: true
+    }
+  });
 
+  gsap.from("#projects", {
+    opacity: 0,
+    y: 50,
+    duration: 1,
+    scrollTrigger: {
+      trigger: "#projects",
+      start: "top 85%",
+      toggleActions: "play none none none",
+      once: true
+    }
+  });
+}
 
 // Filter Buttons Logic
 const filterButtons = document.querySelectorAll(".filter-btn");
@@ -65,7 +69,7 @@ filterButtons.forEach(button => {
 
     projectCards.forEach(card => {
       const status = card.getAttribute("data-status");
-      card.style.display = (filter === "all" || filter === status) ? "flex" : "none";
+      card.style.display = (filter === "all" || status === filter) ? "flex" : "none";
     });
   });
 });
