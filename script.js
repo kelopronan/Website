@@ -27,38 +27,6 @@ function type() {
 
 type();
 
-// Scroll-Triggered Section Animations
-if (typeof gsap !== 'undefined') {
-  gsap.registerPlugin(ScrollTrigger);
-
-  gsap.fromTo("#timeline",
-    { opacity: 0, y: 50 },
-    {
-      opacity: 1,
-      y: 0,
-      duration: 1,
-      scrollTrigger: {
-        trigger: "#timeline",
-        start: "top 90%",
-        end: "top 4%",
-        toggleActions: "play reverse play reverse"
-      }
-    });
-
-  gsap.fromTo("#projects",
-    { opacity: 0, y: 50 },
-    {
-      opacity: 1,
-      y: 0,
-      duration: 1,
-      scrollTrigger: {
-        trigger: "#projects",
-        start: "top 90%",
-        end: "top 2%",
-        toggleActions: "play reverse play reverse"
-      }
-    });
-}
 
 // Filter Buttons Logic
 const filterButtons = document.querySelectorAll(".filter-btn");
