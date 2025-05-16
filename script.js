@@ -27,34 +27,38 @@ function type() {
 
 type();
 
-// Scroll-Triggered Section Animations (Fade-in only, no fade-out)
 if (typeof gsap !== 'undefined') {
   gsap.registerPlugin(ScrollTrigger);
 
-  gsap.from("#timeline", {
-    opacity: 0,
-    y: 50,
-    duration: 1,
-    scrollTrigger: {
-      trigger: "#timeline",
-      start: "top 85%",
-      toggleActions: "play none none none",
-      once: true
-    }
-  });
+  gsap.fromTo("#timeline",
+    { opacity: 0, y: 50 },
+    {
+      opacity: 1,
+      y: 0,
+      duration: 1,
+      scrollTrigger: {
+        trigger: "#timeline",
+        start: "top 85%",
+        toggleActions: "play none none none",
+        once: true
+      }
+    });
 
-  gsap.from("#projects", {
-    opacity: 0,
-    y: 50,
-    duration: 1,
-    scrollTrigger: {
-      trigger: "#projects",
-      start: "top 85%",
-      toggleActions: "play none none none",
-      once: true
-    }
-  });
+  gsap.fromTo("#projects",
+    { opacity: 0, y: 50 },
+    {
+      opacity: 1,
+      y: 0,
+      duration: 1,
+      scrollTrigger: {
+        trigger: "#projects",
+        start: "top 85%",
+        toggleActions: "play none none none",
+        once: true
+      }
+    });
 }
+
 
 // Filter Buttons Logic
 const filterButtons = document.querySelectorAll(".filter-btn");
