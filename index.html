@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Devansh Tiwary | Portfolio</title>
+
+  <!-- Favicon -->
+  <link rel="icon" href="assets/favicon.ico" type="image/x-icon" />
+
+  <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet" />
+
+  <!-- SEO Meta Tags -->
+  <meta name="description" content="Devansh Tiwary – Rust & systems developer, open-source enthusiast. Portfolio of skills, projects, and growth.">
+  <meta name="author" content="Devansh Tiwary">
+  <meta name="keywords" content="Rust, Portfolio, Developer, Systems Programming, Web, JavaScript, Projects">
+
+  <!-- OG Preview (Optional) -->
+  <meta property="og:title" content="Devansh Tiwary's Portfolio" />
+  <meta property="og:description" content="Systems dev. Rust, JS, and everything in between." />
+  <meta property="og:image" content="https://yourdomain.com/assets/social-preview.png" />
+
+  <!-- CSS -->
+  <link rel="stylesheet" href="style.css" />
+
+  <!-- GSAP -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
+  <script src="script.js" defer></script>
+</head>
+<body>
+  <!-- Hero Section -->
+  <section class="hero" style="background-image: url('https://wallpaperaccess.com/full/5926922.jpg');">
+    <div class="container">
+      <h2 class="intro">Hi, I'm <span class="highlight">Devansh</span>.</h2>
+      <p class="typing" id="typing-text"></p>
+    </div>
+  </section>
+
+  <!-- Navigation -->
+  <header class="site-header">
+    <div class="container">
+      <h1 class="logo">Devansh Tiwary</h1>
+      <nav class="nav-links">
+        <a href="#timeline">Timeline</a>
+        <a href="#projects">Projects</a>
+        <a href="#contact">Contact</a>
+      </nav>
+    </div>
+  </header>
+
+  <!-- Timeline Section -->
+  <section id="timeline" class="section timeline">
+    <div class="container">
+      <h2 class="section-title">My Developer Journey</h2>
+      <div class="timeline-wrapper">
+        <div class="timeline-item">
+          <h3>C</h3>
+          <p>Where it all began — fundamentals of logic and memory.</p>
+        </div>
+        <div class="timeline-item">
+          <h3>C++</h3>
+          <p>Object-oriented programming, STL, and structured thinking.</p>
+        </div>
+        <div class="timeline-item">
+          <h3>Python</h3>
+          <p>Scripting, automation, and fast prototyping.</p>
+        </div>
+        <div class="timeline-item">
+          <h3>Java</h3>
+          <p>Enterprise-ready, solid backend fundamentals.</p>
+        </div>
+        <div class="timeline-item">
+          <h3>Rust</h3>
+          <p>Power and safety — systems-level exploration.</p>
+        </div>
+        <div class="timeline-item">
+          <h3>TypeScript</h3>
+          <p>Typed JavaScript — scaling modern frontend projects.</p>
+        </div>
+        <div class="timeline-item">
+          <h3>Go</h3>
+          <p>Exploring concurrency and cloud tools.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Projects Section -->
+  <section id="projects" class="section projects">
+    <div class="container">
+      <h2 class="section-title">Projects</h2>
+      <div class="project-filters">
+        <button class="filter-btn active" data-filter="all">All</button>
+        <button class="filter-btn" data-filter="planned">Planned</button>
+        <button class="filter-btn" data-filter="completed">Completed</button>
+      </div>
+      <div class="project-cards">
+                <div class="project-cards">
+  <div class="project-card" data-status="completed">
+    <h3>Portfolio Website</h3>
+    <p>Professional portfolio built with HTML, CSS, JS, GSAP, and hosted on GitHub Pages.</p>
+    <span class="project-tag completed">Completed</span>
+  </div>
+
+  <div class="project-card" data-status="completed">
+    <h3>Student Grade Manager</h3>
+    <p>C++ console app to manage grades and averages. Uses file handling & basic data structures.</p>
+    <span class="project-tag completed">Completed</span>
+  </div>
+
+  <div class="project-card" data-status="planned">
+    <h3>Rust ToDo App</h3>
+    <p>Terminal-based task manager built in Rust. Exploring memory safety and CLI interactions.</p>
+    <span class="project-tag planned">Planned</span>
+  </div>
+
+  <div class="project-card" data-status="planned">
+    <h3>Password Generator</h3>
+    <p>Simple JS tool to generate secure passwords with copy-to-clipboard function.</p>
+    <span class="project-tag planned">Planned</span>
+  </div>
+
+  <div class="project-card" data-status="planned">
+    <h3>File Organizer CLI</h3>
+    <p>Python-based script to auto-sort files in directories by extension/type.</p>
+    <span class="project-tag planned">Planned</span>
+  </div>
+
+  <div class="project-card" data-status="planned">
+    <h3>API-Powered Blog</h3>
+    <p>Blog front-end fetching content from a mock REST API. Built with JS or TypeScript.</p>
+    <span class="project-tag planned">Planned</span>
+  </div>
+
+  <div class="project-card" data-status="planned">
+    <h3>Terminal Budget Tracker</h3>
+    <p>Budgeting tool with income/expense tracking, made in either Rust or Python.</p>
+    <span class="project-tag planned">Planned</span>
+  </div>
+</div
+        <!-- Individual project cards will go here (already coded separately) -->
+      </div>
+    </div>
+  </section>
+
+  <!-- Contact Section -->
+  <section id="contact" class="section contact">
+    <div class="container">
+      <h2 class="section-title">Get In Touch</h2>
+      <p>Email: <a href="mailto:qwertybabaqwerty@gmail.com">qwertybabaqwerty@gmail.com</a></p>
+      <p>Phone: <a href="tel:+917739348169">+91 7739348169</a></p>
+    </div>
+  </section>
+
+  <!-- Back to Top Button -->
+  <button id="backToTop" title="Back to top">⬆️</button>
+
+  <!-- Footer -->
+  <footer class="site-footer">
+    <div class="container">
+      <p>&copy; 2025 Devansh Tiwary. Built with 💻 + ☕ + obsession.</p>
+    </div>
+  </footer>
+</body>
+</html>
