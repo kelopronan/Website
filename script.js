@@ -27,6 +27,7 @@ function type() {
 
 type();
 
+// Scroll-Triggered Section Animations
 if (typeof gsap !== 'undefined') {
   gsap.registerPlugin(ScrollTrigger);
 
@@ -38,9 +39,9 @@ if (typeof gsap !== 'undefined') {
       duration: 1,
       scrollTrigger: {
         trigger: "#timeline",
-        start: "top 85%",
-        toggleActions: "play none none none",
-        once: true
+        start: "top 97%",
+        end: "top 3%",
+        toggleActions: "play reverse play reverse"
       }
     });
 
@@ -52,13 +53,12 @@ if (typeof gsap !== 'undefined') {
       duration: 1,
       scrollTrigger: {
         trigger: "#projects",
-        start: "top 85%",
-        toggleActions: "play none none none",
-        once: true
+        start: "top 97%",
+        end: "top 3%",
+        toggleActions: "play reverse play reverse"
       }
     });
 }
-
 
 // Filter Buttons Logic
 const filterButtons = document.querySelectorAll(".filter-btn");
@@ -73,7 +73,7 @@ filterButtons.forEach(button => {
 
     projectCards.forEach(card => {
       const status = card.getAttribute("data-status");
-      card.style.display = (filter === "all" || status === filter) ? "flex" : "none";
+      card.style.display = (filter === "all" || filter === status) ? "flex" : "none";
     });
   });
 });
@@ -103,4 +103,3 @@ window.addEventListener("load", () => {
     }, i * 150);
   });
 });
-console.log('GSAP and ScrollTrigger loaded:', typeof gsap !== 'undefined');
