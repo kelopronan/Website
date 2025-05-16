@@ -41,7 +41,7 @@ if (typeof gsap !== 'undefined') {
         trigger: "#timeline",
         start: "top 97%",
         end: "top 3%",
-        toggleActions: "play reverse play reverse"
+        toggleActions: "play none none none"
       }
     });
 
@@ -55,7 +55,7 @@ if (typeof gsap !== 'undefined') {
         trigger: "#projects",
         start: "top 97%",
         end: "top 3%",
-        toggleActions: "play reverse play reverse"
+        toggleActions: "play none none none"
       }
     });
 }
