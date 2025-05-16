@@ -40,7 +40,7 @@ I’m a developer with a love for:
 ## 📷 Preview
 
 > Live at: https://kelopronan.github.io/  
-(Screenshot preview here if you want)
+
 
 ---
 
