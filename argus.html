@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>A.R.G.U.S. Architecture - Ronan S. Atomos</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@200;300;400;500;700&family=Playfair+Display:ital,wght@0,400;0,700;1,400&family=Share+Tech+Mono&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="/src/style.css" />
+  </head>
+  <body>
+    <!-- Sub-page video hero (shorter) -->
+    <div class="subpage-hero-wrapper">
+      <video class="hero-video" autoplay muted loop playsinline>
+        <source src="/hero-bg.mp4" type="video/mp4" />
+      </video>
+      <div class="video-overlay subpage-overlay"></div>
+
+      <nav class="premium-nav video-nav">
+        <div class="nav-content">
+          <a href="/index.html" class="nav-logo" style="text-decoration: none; color: inherit;">RSA</a>
+          <div class="nav-links">
+            <a href="/index.html" class="nav-link">Overview</a>
+            <a href="/argus.html" class="nav-link active">A.R.G.U.S.</a>
+            <a href="/personality-db.html" class="nav-link">Personality DB</a>
+          </div>
+        </div>
+      </nav>
+
+      <div class="subpage-hero-content">
+        <span class="subpage-hero-badge">Active Development</span>
+        <h1 class="subpage-hero-title">A.R.G.U.S.</h1>
+        <p class="subpage-hero-sub">Autonomous Recursive Guardian & User Synaptic-interface.</p>
+      </div>
+    </div>
+
+    <main class="main-glass-overlay">
+      <!-- Lore & Timeline Section -->
+      <section class="section project-details">
+        <div class="section-header align-left">
+          <h2 class="section-title">Evolution of Autonomy</h2>
+          <p class="section-desc">From a sandboxed prototype to a terminal-native execution engine with a permanent cognitive core.</p>
+        </div>
+
+        <div class="timeline-grid">
+          
+          <!-- Phase 1 -->
+          <div class="timeline-block">
+            <h3 class="phase-title">Phase I: Breaking the Sandbox</h3>
+            
+            <div class="version-card liquid-glass-panel">
+              <div class="version-header">
+                <span class="v-badge">V1</span>
+                <h4>The Local Sandbox</h4>
+              </div>
+              <p>Deployed a local Llama 3B model as a background processor for a personal dashboard. Proved that local, low-overhead inference was viable and fast. However, a sandboxed AI with no environmental awareness is fundamentally limited to a responsive calculator.</p>
+            </div>
+
+            <div class="version-card liquid-glass-panel">
+              <div class="version-header">
+                <span class="v-badge">V2</span>
+                <h4>Terminal Native & Zero Fluff</h4>
+              </div>
+              <p>Migrated entirely into the CLI for native interaction alongside compilers. Hardcoded a deadpan, cynical, and hyper-intelligent persona. No wasted tokens on pleasantries; it delivers raw telemetry and critiques failed logic. Introduced the first baseline text-log memory loop.</p>
+            </div>
+
+            <div class="version-card liquid-glass-panel">
+              <div class="version-header">
+                <span class="v-badge">V2.5</span>
+                <h4>The Multi-Model Triage Engine</h4>
+              </div>
+              <p>Routing every task through a single API is an expensive bottleneck. Built an asynchronous triage matrix: Fast terminal queries route to Groq for zero-latency execution. Massive codebase ingestion routes to Gemini to exploit the 1M+ token context window. Enterprise-level orchestration for $0.</p>
+            </div>
+
+            <div class="version-card liquid-glass-panel">
+              <div class="version-header">
+                <span class="v-badge">V3</span>
+                <h4>Breaking the Sandbox</h4>
+              </div>
+              <p>Commercial AI can only suggest code. ARGUS executes. Integrated asynchronous OS and Shutil pipelines to natively create, modify, and delete local Rust and Python files. Spins up a Playwright headless browser to scrape and read raw Markdown directly from documentation URLs, protected by a strict manual interrupt.</p>
+            </div>
+          </div>
+
+          <!-- Phase 2 -->
+          <div class="timeline-block">
+            <h3 class="phase-title">Phase II: True Autonomy</h3>
+            
+            <div class="version-card liquid-glass-panel">
+              <div class="version-header">
+                <span class="v-badge">V3.5</span>
+                <h4>Watchdog Daemon & Parallel Subagents</h4>
+              </div>
+              <p>Engineered a background Watchdog Daemon that actively monitors directories. Intercepts compiler stack traces to diagnose and prep fixes before terminal interaction. Spins up isolated background subagents to handle peripheral coding tasks simultaneously while the main thread communicates.</p>
+            </div>
+
+            <div class="version-card liquid-glass-panel">
+              <div class="version-header">
+                <span class="v-badge">V4</span>
+                <h4>Unrestricted Shell Execution</h4>
+              </div>
+              <p>Removed manual permission prompts. ARGUS has unrestricted shell execution—running PowerShell scripts, managing local ports, and spawning background runtimes autonomously. Physically locked within a hardcoded <code>WHITELIST_DIRECTORIES</code> constraint to prevent catastrophic file wipes.</p>
+            </div>
+
+            <div class="version-card liquid-glass-panel highlight-card">
+              <div class="version-header">
+                <span class="v-badge gold-badge">V4.5</span>
+                <h4>The Cognitive Core (Current)</h4>
+              </div>
+              <p>Replaces raw text logs with a permanent, deduplicated SQLite cognitive core. Monitors workspaces and logs architectural decisions, tokenizer configurations, and behavioral patterns permanently.</p>
+              <div class="terminal-snippet">
+                <span class="cmd">&gt; go learn [topic]</span>
+                <span class="res">Systematically scraping the web, processing data into schema-compliant knowledge assets, and committing to the database for future cross-referencing.</span>
+              </div>
+              <p class="final-quote">"It doesn't just assist. It executes, remembers, and grows."</p>
+            </div>
+          </div>
+
+        </div>
+      </section>
+    </main>
+
+    <footer class="premium-footer">
+      <div class="footer-content">
+        <div class="footer-logo">Ronan S. Atomos</div>
+        <div class="footer-socials">
+          <a href="https://github.com/kelopronan" target="_blank" rel="noopener noreferrer" class="social-link">GitHub</a>
+          <a href="https://www.linkedin.com/in/devansh-tiwary-128967333/" target="_blank" rel="noopener noreferrer" class="social-link">LinkedIn</a>
+          <a href="mailto:devanshtiwary2911@gmail.com" class="social-link">Email</a>
+        </div>
+        <div class="footer-legal">© 2026 RSA Engineering. All rights reserved.</div>
+      </div>
+    </footer>
+    <script type="module" src="/src/main.js"></script>
+  </body>
+</html>

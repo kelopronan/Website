@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Personality DB - Ronan S. Atomos</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@200;300;400;500;700&family=Playfair+Display:ital,wght@0,400;0,700;1,400&family=Share+Tech+Mono&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="/src/style.css" />
+  </head>
+  <body>
+    <!-- Sub-page video hero (shorter) -->
+    <div class="subpage-hero-wrapper">
+      <video class="hero-video" autoplay muted loop playsinline>
+        <source src="/hero-bg.mp4" type="video/mp4" />
+      </video>
+      <div class="video-overlay subpage-overlay"></div>
+
+      <nav class="premium-nav video-nav">
+        <div class="nav-content">
+          <a href="/index.html" class="nav-logo" style="text-decoration: none; color: inherit;">RSA</a>
+          <div class="nav-links">
+            <a href="/index.html" class="nav-link">Overview</a>
+            <a href="/argus.html" class="nav-link">A.R.G.U.S.</a>
+            <a href="/personality-db.html" class="nav-link active">Personality DB</a>
+          </div>
+        </div>
+      </nav>
+
+      <div class="subpage-hero-content">
+        <span class="subpage-hero-badge">Deployed — GitHub Pages</span>
+        <h1 class="subpage-hero-title">Personality Database</h1>
+        <p class="subpage-hero-sub">High-Fidelity Daily Activity Visualization & Metrics Compilation.</p>
+        <div style="margin-top: 1.5rem;">
+          <a href="https://github.com/kelopronan/Personal-Database-Dashboard" target="_blank" rel="noopener noreferrer" style="text-decoration: none;">
+            <button class="skeuo-button primary-btn">View Source Code</button>
+          </a>
+        </div>
+      </div>
+    </div>
+
+    <main class="main-glass-overlay">
+      <!-- OVERVIEW & ARCHITECTURE -->
+      <section class="section project-details">
+        <div class="section-header align-left">
+          <h2 class="section-title">System Architecture</h2>
+          <p class="section-desc">A comprehensive, developer-centric dashboard designed to centralize tasks, scheduling, coding resources, and analytics into a single local environment.</p>
+        </div>
+        
+        <div class="specs-table-container liquid-glass-panel" style="margin-bottom: 4rem;">
+          <div class="spec-category">
+            <h3 class="category-title">Portability Layer</h3>
+            <p style="color: var(--text-secondary); line-height: 1.6; margin-bottom: 2rem;">
+              While initially built with Node.js, Express, and SQLite, the current codebase implements a clever portability layer (via the <code>DB</code> object) that mocks database requests using the browser's <code>localStorage</code>. This allows the entire application to run seamlessly as a static site (e.g., on GitHub Pages) while remaining structured like a RESTful API application.
+            </p>
+          </div>
+          
+          <div class="spec-category">
+            <h3 class="category-title">Tech Stack & Libraries</h3>
+            <div class="spec-row">
+              <div class="spec-key">Frontend</div>
+              <div class="spec-val">HTML5, Vanilla JavaScript, and Tailwind CSS (via CDN) for styling.</div>
+            </div>
+            <div class="spec-row">
+              <div class="spec-key">Typography</div>
+              <div class="spec-val">Lucide Icons, 'Inter' for UI, and 'Fira Code' for code sections.</div>
+            </div>
+            <div class="spec-row">
+              <div class="spec-key">Libraries</div>
+              <div class="spec-val"><code>marked.js</code> for Markdown parsing, <code>Chart.js</code> for rendering productivity analytics.</div>
+            </div>
+            <div class="spec-row">
+              <div class="spec-key">External APIs</div>
+              <div class="spec-val">
+                <strong>Groq API:</strong> Powers "Zen Assistant" AI (llama-3.1-8b).<br/>
+                <strong>Tavily API:</strong> Live internet search capabilities for the AI.<br/>
+                <strong>GitHub API:</strong> Fetches profiles, repos, and commit events.<br/>
+                <strong>wttr.in:</strong> Real-time weather tracking.
+              </div>
+            </div>
+          </div>
+        </div>
+        
+        <!-- 8 CORE MODULES GRID -->
+        <h2 class="section-title" style="margin-top: 6rem;">Core Modules</h2>
+        <div class="modules-grid">
+          
+          <div class="module-card liquid-glass-panel">
+            <span class="module-number">01</span>
+            <h4>Security & Auth</h4>
+            <p>Guarded by an access protocol interface requiring a hardcoded "Access Protocol Key". Users can provide a Groq API Key at login to initialize AI features securely via localStorage.</p>
+          </div>
+
+          <div class="module-card liquid-glass-panel highlight-card">
+            <span class="module-number">02</span>
+            <h4>Zen Intelligence Assistant</h4>
+            <p>A floating, LLaMA-powered AI that acts as the system brain. It provides proactive briefings, understands context via system prompts, uses Tavily for web searches, and autonomously executes command protocols (e.g., <code>[ADD_TASK]</code>).</p>
+          </div>
+
+          <div class="module-card liquid-glass-panel">
+            <span class="module-number">03</span>
+            <h4>Task Management</h4>
+            <p>A dual-system featuring a Priority Tasks to-do list and a Core Scheduler—a custom-built, interactive monthly calendar grid for tracking "Objectives".</p>
+          </div>
+
+          <div class="module-card liquid-glass-panel">
+            <span class="module-number">04</span>
+            <h4>Dashboard & Focus Engine</h4>
+            <p>The main landing screen features a Real-time HUD, a visual Pomodoro focus timer with an SVG circular progress bar, and a live Activity Stream logging tasks and code pushes.</p>
+          </div>
+
+          <div class="module-card liquid-glass-panel">
+            <span class="module-number">05</span>
+            <h4>GitHub Intelligence</h4>
+            <p>Syncs with GitHub using a Personal Access Token. It automatically pulls repository data, filters PushEvents into the dashboard's activity feed, and renders a dynamic contribution graph.</p>
+          </div>
+
+          <div class="module-card liquid-glass-panel">
+            <span class="module-number">06</span>
+            <h4>Code & Data Vaults</h4>
+            <p><strong>Code Vault:</strong> A snippet manager with language-specific tagging (JS, Python, Rust, SQL).<br/><strong>Data Vault:</strong> A repository for external resources like videos and markdown notes.</p>
+          </div>
+
+          <div class="module-card liquid-glass-panel">
+            <span class="module-number">07</span>
+            <h4>Zen Writer</h4>
+            <p>A distraction-free, highly customizable Markdown editor. Features a dual-pane setup with live formatting preview, directly saving documents into the Data Vault.</p>
+          </div>
+
+          <div class="module-card liquid-glass-panel">
+            <span class="module-number">08</span>
+            <h4>Analytics & Health</h4>
+            <p>Renders a "Weekly Completion Velocity" chart and actively pings the Groq and GitHub APIs every 5 seconds to ensure credential validity and network stability.</p>
+          </div>
+
+        </div>
+
+        <!-- DESIGN SYSTEM -->
+        <h2 class="section-title" style="margin-top: 8rem;">Design System</h2>
+        <div class="liquid-glass-panel" style="margin-top: 2rem; aspect-ratio: auto; padding: 2.5rem;">
+          <p style="color: var(--text-primary); font-size: 1.05rem; line-height: 1.7;">
+            The UI follows a strict <strong>Dark Mode / Cyberpunk / Glassmorphism</strong> aesthetic. It utilizes deep black backgrounds with ambient blurred video loops, leveraging translucent backgrounds, <code>backdrop-filter: blur()</code>, and subtle bright borders. Neon accents are driven by a fruit gradient (<code>#ff0080</code> to <code>#7928ca</code>) for key AI triggers, complemented by physics-based CSS transitions.
+          </p>
+        </div>
+
+      </section>
+    </main>
+
+    <footer class="premium-footer">
+      <div class="footer-content">
+        <div class="footer-logo">Ronan S. Atomos</div>
+        <div class="footer-socials">
+          <a href="https://github.com/kelopronan" target="_blank" rel="noopener noreferrer" class="social-link">GitHub</a>
+          <a href="https://www.linkedin.com/in/devansh-tiwary-128967333/" target="_blank" rel="noopener noreferrer" class="social-link">LinkedIn</a>
+          <a href="mailto:devanshtiwary2911@gmail.com" class="social-link">Email</a>
+        </div>
+        <div class="footer-legal">© 2026 RSA Engineering. All rights reserved.</div>
+      </div>
+    </footer>
+    <script type="module" src="/src/main.js"></script>
+  </body>
+</html>
