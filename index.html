@@ -22,7 +22,15 @@
       <nav class="premium-nav video-nav">
         <div class="nav-content">
           <a href="./index.html" class="nav-logo" style="text-decoration: none; color: inherit;">RSA</a>
-          <div class="nav-links">
+          <div class="nav-weather" id="nav-weather">
+            <span class="weather-icon">—</span>
+            <span class="weather-temp">--°</span>
+            <span class="weather-city">Locating...</span>
+          </div>
+          <button class="nav-hamburger" id="nav-hamburger" aria-label="Toggle menu">
+            <span></span><span></span><span></span>
+          </button>
+          <div class="nav-links" id="nav-links">
             <a href="./index.html" class="nav-link active">Overview</a>
             <a href="./argus.html" class="nav-link">A.R.G.U.S.</a>
             <a href="./personality-db.html" class="nav-link">Personality DB</a>
@@ -195,10 +203,10 @@
           <a href="mailto:devanshtiwary2911@gmail.com" class="social-link">Email</a>
         </div>
         <div class="footer-legal">© 2026 RSA Engineering. All rights reserved.</div>
+        <div class="footer-clock" id="footer-clock"></div>
       </div>
     </footer>
 
     <script type="module" src="./src/main.js"></script>
-    <script type="module" src="./src/canvas-bg.js"></script>
   </body>
 </html>

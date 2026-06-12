@@ -4,6 +4,77 @@
   3D Skeuomorphic Polish Pass
 */
 
+/* ============================================ */
+/* BOOT-UP LOADING SCREEN                       */
+/* ============================================ */
+#boot-loader {
+  position: fixed;
+  inset: 0;
+  z-index: 99999;
+  background: #050505;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: opacity 0.6s ease, visibility 0.6s ease;
+}
+
+#boot-loader.loader-fade-out {
+  opacity: 0;
+  visibility: hidden;
+}
+
+.loader-content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1.5rem;
+}
+
+.loader-logo {
+  font-family: 'Inter', sans-serif;
+  font-size: 2.5rem;
+  font-weight: 700;
+  letter-spacing: -0.04em;
+  color: #ffffff;
+  animation: loaderPulse 1.5s ease-in-out infinite;
+}
+
+@keyframes loaderPulse {
+  0%, 100% { opacity: 0.6; }
+  50% { opacity: 1; }
+}
+
+.loader-bar-track {
+  width: 200px;
+  height: 2px;
+  background: rgba(255, 255, 255, 0.1);
+  border-radius: 2px;
+  overflow: hidden;
+}
+
+.loader-bar-fill {
+  height: 100%;
+  width: 0;
+  background: linear-gradient(90deg, rgba(255,255,255,0.3), rgba(255,255,255,0.8));
+  border-radius: 2px;
+  animation: loaderFill 2s ease-out forwards;
+}
+
+@keyframes loaderFill {
+  0% { width: 0; }
+  60% { width: 70%; }
+  100% { width: 100%; }
+}
+
+.loader-status {
+  font-family: 'Share Tech Mono', monospace;
+  font-size: 0.75rem;
+  color: rgba(255, 255, 255, 0.4);
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  min-height: 1.2em;
+}
+
 :root {
   /* Premium Dark Monochromatic Palette */
   --bg-base: #050505;
@@ -77,48 +148,6 @@ body {
   background: rgba(255, 255, 255, 0.25);
 }
 
-/* FLUID AMBIENT BACKGROUND (Liquid Glass Refraction Base) */
-.fluid-background {
-  position: fixed;
-  top: 0; left: 0; right: 0; bottom: 0;
-  z-index: -1;
-  overflow: hidden;
-  background: var(--bg-base);
-}
-
-.fluid-orb {
-  position: absolute;
-  border-radius: 50%;
-  filter: blur(120px);
-  opacity: 0.4;
-  animation: float 20s infinite ease-in-out alternate;
-}
-
-.orb-1 {
-  width: 60vw; height: 60vw;
-  background: radial-gradient(circle, #1a1a24 0%, transparent 70%);
-  top: -10vw; left: -10vw;
-}
-
-.orb-2 {
-  width: 50vw; height: 50vw;
-  background: radial-gradient(circle, #0f172a 0%, transparent 70%);
-  bottom: -10vw; right: -10vw;
-  animation-delay: -5s;
-}
-
-.orb-3 {
-  width: 40vw; height: 40vw;
-  background: radial-gradient(circle, #1e1b4b 0%, transparent 70%);
-  top: 40%; left: 30%;
-  animation-duration: 25s;
-}
-
-@keyframes float {
-  0% { transform: translate(0, 0) scale(1); }
-  100% { transform: translate(5vw, 5vh) scale(1.1); }
-}
-
 /* OVERLAYS */
 .main-glass-overlay {
   position: relative;
@@ -163,6 +192,39 @@ body {
   opacity: 0.7;
 }
 
+/* Hamburger — hidden on desktop */
+.nav-hamburger {
+  display: none;
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 0.5rem;
+  flex-direction: column;
+  gap: 5px;
+  z-index: 101;
+}
+
+.nav-hamburger span {
+  display: block;
+  width: 22px;
+  height: 2px;
+  background: var(--text-primary);
+  border-radius: 2px;
+  transition: all 0.3s ease;
+}
+
+.nav-hamburger.active span:nth-child(1) {
+  transform: rotate(45deg) translate(5px, 5px);
+}
+
+.nav-hamburger.active span:nth-child(2) {
+  opacity: 0;
+}
+
+.nav-hamburger.active span:nth-child(3) {
+  transform: rotate(-45deg) translate(5px, -5px);
+}
+
 .nav-links {
   display: flex;
   gap: 0.5rem;
@@ -191,6 +253,92 @@ body {
   color: var(--text-primary);
   background: rgba(255, 255, 255, 0.1);
   box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.1);
+}
+
+/* ============================================ */
+/* WEATHER WIDGET (Nav pill)                    */
+/* ============================================ */
+.nav-weather {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.35rem 1rem;
+  border-radius: 999px;
+  background: rgba(255, 255, 255, 0.06);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  font-size: 0.75rem;
+  color: var(--text-secondary);
+  letter-spacing: 0.02em;
+  white-space: nowrap;
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  transition: opacity 0.4s ease, border-color 0.4s ease;
+}
+
+.nav-weather:hover {
+  border-color: rgba(255, 255, 255, 0.15);
+}
+
+.weather-icon {
+  font-size: 1rem;
+  line-height: 1;
+}
+
+.weather-temp {
+  font-weight: 600;
+  color: var(--text-primary);
+  font-family: 'Share Tech Mono', monospace;
+}
+
+.weather-city {
+  color: var(--text-tertiary);
+  font-size: 0.7rem;
+}
+
+/* ============================================ */
+/* NAV SCROLL EFFECT                            */
+/* ============================================ */
+.premium-nav {
+  transition: background 0.4s ease, box-shadow 0.4s ease;
+}
+
+.premium-nav.scrolled {
+  background: rgba(5, 5, 5, 0.85);
+  box-shadow: 0 4px 30px rgba(0, 0, 0, 0.4);
+}
+
+/* ============================================ */
+/* ALIVE MICRO-ANIMATIONS                       */
+/* ============================================ */
+
+/* Cards lift slightly on hover */
+.product-card {
+  transition: transform 0.5s var(--ease-out-expo);
+}
+
+.product-card:hover {
+  transform: translateY(-4px);
+}
+
+/* Version & module cards — subtle alive pulse border */
+.version-card:hover,
+.module-card:hover {
+  border-color: rgba(255, 255, 255, 0.18);
+}
+
+/* Buttons — magnetic hover (tracked via JS) */
+.skeuo-button {
+  transition: all 0.4s var(--ease-out-expo), transform 0.2s ease-out;
+}
+
+/* Spec rows glow on hover */
+.spec-row {
+  transition: background 0.3s ease, padding-left 0.3s ease;
+}
+
+.spec-row:hover {
+  background: rgba(255, 255, 255, 0.03);
+  padding-left: 0.5rem;
 }
 
 /* ============================================ */
@@ -394,48 +542,6 @@ body {
   max-width: 1200px;
   margin: 0 auto;
   padding: 8rem 2rem 4rem;
-}
-
-/* Legacy hero classes (kept for subpages) */
-.hero-section {
-  min-height: 100vh;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  text-align: center;
-  padding-top: 72px;
-}
-
-.hero-content {
-  max-width: 800px;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  gap: 1.5rem;
-  animation: fadeUp 1.2s var(--ease-out-expo) forwards;
-}
-
-.hero-title {
-  font-size: clamp(3.5rem, 8vw, 7rem);
-  font-weight: 700;
-  letter-spacing: -0.04em;
-  line-height: 1.05;
-  background: linear-gradient(180deg, #FFFFFF 0%, #A1A1A6 100%);
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  background-clip: text;
-}
-
-.hero-subtitle {
-  font-size: clamp(1.1rem, 2vw, 1.4rem);
-  font-weight: 300;
-  color: var(--text-secondary);
-  max-width: 600px;
-  line-height: 1.6;
-}
-
-.hero-actions {
-  margin-top: 2rem;
 }
 
 /* ============================================ */
@@ -801,6 +907,14 @@ body {
   width: 100%;
 }
 
+.footer-clock {
+  font-family: 'Share Tech Mono', monospace;
+  font-size: 0.75rem;
+  color: var(--text-tertiary);
+  letter-spacing: 0.04em;
+  margin-top: 0.5rem;
+}
+
 /* ============================================ */
 /* PERSONALITY DB MODULES GRID                  */
 /* ============================================ */
@@ -868,6 +982,41 @@ body {
 /* RESPONSIVE                                   */
 /* ============================================ */
 @media (max-width: 900px) {
+  /* Hide weather on mobile */
+  .nav-weather {
+    display: none;
+  }
+
+  /* Mobile hamburger menu */
+  .nav-hamburger {
+    display: flex;
+  }
+
+  .nav-links {
+    display: none;
+    position: absolute;
+    top: 72px;
+    left: 0;
+    right: 0;
+    flex-direction: column;
+    background: rgba(5, 5, 5, 0.95);
+    backdrop-filter: blur(40px) saturate(1.8);
+    -webkit-backdrop-filter: blur(40px) saturate(1.8);
+    border-bottom: 1px solid var(--glass-border);
+    padding: 1rem 2rem;
+    gap: 0.25rem;
+  }
+
+  .nav-links.open {
+    display: flex;
+  }
+
+  .nav-link {
+    padding: 0.75rem 1rem;
+    font-size: 0.95rem;
+    border-radius: 12px;
+  }
+
   .product-card, .product-card.reverse {
     grid-template-columns: 1fr;
     gap: 2rem;
@@ -879,6 +1028,14 @@ body {
   
   .specs-table-container {
     padding: 1.5rem;
+  }
+
+  .specs-table-container.liquid-glass-panel {
+    aspect-ratio: auto;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: flex-start;
   }
   
   .spec-row {
@@ -904,15 +1061,6 @@ body {
     gap: 5rem;
   }
 
-  .nav-links {
-    gap: 0.25rem;
-  }
-
-  .nav-link {
-    padding: 0.4rem 0.8rem;
-    font-size: 0.8rem;
-  }
-
   .section {
     padding: 6rem 1.5rem 3rem;
   }
@@ -921,43 +1069,41 @@ body {
     margin-bottom: 3rem;
   }
 
-  /* Video hero responsive */
+  /* Video hero — stack vertically, title first */
   .video-hero-content {
     flex-direction: column;
     align-items: flex-start;
     padding: 0 1.5rem;
     padding-bottom: 4rem;
-    gap: 2rem;
+    gap: 1.5rem;
   }
 
-  .video-hero-left {
-    align-self: flex-start;
-  }
+  /* Reorder: title first, then tags, then blurb */
+  .video-hero-center { order: -1; }
+  .video-hero-left { order: 0; align-self: flex-start; }
+  .video-hero-right { order: 1; flex: none; }
 
   .project-tags {
     flex-direction: row;
     flex-wrap: wrap;
-    gap: 0.4rem;
+    gap: 0.5rem;
+  }
+
+  .project-tag {
+    padding: 0.5rem 1.2rem;
+    font-size: 0.85rem;
   }
 
   .video-hero-title {
-    font-size: clamp(2.5rem, 10vw, 4rem);
+    font-size: clamp(2.8rem, 10vw, 4rem);
   }
 
-  .video-hero-right {
-    flex: none;
+  .video-hero-blurb {
+    font-size: 0.95rem;
   }
 }
 
 @media (max-width: 600px) {
-  .hero-title {
-    font-size: 2.8rem;
-  }
-
-  .hero-subtitle {
-    font-size: 1rem;
-  }
-
   .modules-grid {
     grid-template-columns: 1fr;
     gap: 1.5rem;
@@ -1061,55 +1207,6 @@ body {
   font-weight: 300;
   max-width: 600px;
   line-height: 1.6;
-}
-
-/* PROJECT HERO */
-.project-hero {
-  display: flex;
-  flex-direction: column;
-  gap: 3rem;
-  align-items: center;
-  text-align: center;
-  padding-bottom: 4rem;
-}
-
-.project-hero-header {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  gap: 1rem;
-}
-
-.hero-visual {
-  max-width: 700px;
-  width: 100%;
-}
-
-.hero-feature-img {
-  width: 100%;
-  max-width: 500px;
-  height: auto;
-  border-radius: 16px;
-  box-shadow: 0 20px 50px rgba(0,0,0,0.6);
-  z-index: 2;
-  position: relative;
-  transition: transform 0.6s var(--ease-out-expo);
-}
-
-.hero-feature-img:hover {
-  transform: scale(1.03);
-}
-
-/* Content block for personality DB */
-.content-block {
-  max-width: 700px;
-  margin: 2rem auto 0;
-  text-align: center;
-}
-
-.content-block h3 {
-  font-size: 1.5rem;
-  margin-bottom: 1rem;
 }
 
 /* ============================================ */
@@ -1309,4 +1406,59 @@ code {
   padding: 0.15em 0.4em;
   border-radius: 4px;
   border: 1px solid rgba(255, 255, 255, 0.04);
+}
+
+/* ============================================ */
+/* MOBILE-FIRST OVERRIDES  (480px / 360px)      */
+/* ============================================ */
+@media (max-width: 480px) {
+  /* Hero */
+  .video-hero-content { padding: 0 1rem; padding-bottom: 3rem; }
+  .video-hero-title { font-size: 2.8rem; }
+  .project-tag { padding: 0.45rem 1rem; font-size: 0.8rem; }
+
+  /* Buttons — 44px min tap target */
+  .skeuo-button { padding: 1rem 2rem; font-size: 0.9rem; border-radius: 14px; }
+
+  /* Cards */
+  .product-card { gap: 1.5rem; }
+  .product-title { font-size: 1.6rem; }
+  .product-desc { font-size: 0.9rem; }
+
+  /* Specs */
+  .specs-table-container { padding: 1.2rem; }
+  .specs-table-container.liquid-glass-panel { aspect-ratio: auto; }
+  .category-title { font-size: 1.1rem; }
+
+  /* Section */
+  .section { padding: 4rem 1rem 2rem; }
+  .section-title { font-size: 1.8rem; }
+  .section-desc { font-size: 0.95rem; }
+
+  /* Subpage hero */
+  .subpage-hero-wrapper { height: 40vh; min-height: 280px; }
+  .subpage-hero-title { font-size: 2.2rem; }
+  .subpage-hero-content { padding: 0 1rem 2.5rem; }
+  .subpage-hero-sub { font-size: 1rem; }
+
+  /* Timeline */
+  .timeline-block { padding-left: 1rem; }
+  .version-card { padding: 1.5rem; }
+  .version-card h4 { font-size: 1.1rem; }
+  .phase-title { font-size: 1.3rem; }
+
+  /* Module cards */
+  .module-card { padding: 1.5rem; }
+  .module-card h4 { font-size: 1.15rem; }
+
+  /* Footer */
+  .premium-footer { padding: 2.5rem 1rem; }
+  .footer-socials { gap: 1rem; }
+}
+
+/* Extra small phones */
+@media (max-width: 360px) {
+  .video-hero-title { font-size: 2.2rem; }
+  .nav-link { padding: 0.35rem 0.6rem; font-size: 0.75rem; }
+  .project-tag { padding: 0.4rem 0.9rem; font-size: 0.8rem; }
 }
